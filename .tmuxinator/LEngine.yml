@@ -31,12 +31,18 @@ root: ~/Documents/cpp/LEngine
 # post: tmux -CC attach -t LEngine
 
 windows:
-  - Source:
+  - CPP:
       layout: main-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - cd Source && ls -a
-  - Testing: cd test && ls-a
-  - Logs: cd Logs
+        - cd Source && ls -a; clear; figlet CPP; vim
+  - LEngine:
+      layout: main-vertical
+         
+      panes:
+          - ls -a; clear; figlet LENGINE; cowsay -f "$(ls /usr/share/cowsay/cows/ | sort -R | head -1)" "$(fortune -s)"
+          - ranger
+          - vim ./NOTES.txt
+  - Lua: cd Data/Resources/Scripts; clear; figlet LUA
